@@ -1,0 +1,11 @@
+## Interface: 11200
+## Title: GuildRecruiter
+## Notes: Automated guild recruitment addon
+## Author: Subby
+## Version: 3.7
+
+## SavedVariables: GuildRecruiter_RunRecruit, GuildRecruiter_RecruitmentRunTimer, GuildRecruiter_RecruitChannel, GuildRecruiter_WorldOverride, GuildRecruiter_NewZones
+## SavedVariablesPerCharacter: GuildRecruiter_GuildName, GuildRecruiter_Messages
+
+GuildRecruiter.lua
+UI.lua
