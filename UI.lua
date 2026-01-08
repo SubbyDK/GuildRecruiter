@@ -55,13 +55,12 @@ scrollFrame:SetScrollChild(content)
 
 local text = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 text:SetFont("Fonts\\FRIZQT__.TTF", 14)
--- local text = content:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 text:SetPoint("TOPLEFT", content, "TOPLEFT", 0, 0)
 text:SetWidth(340)
 text:SetJustifyH("LEFT")
 
 ------------------------------------------------------------
--- Command list text (matches GuildRecruiter 3.3)
+-- Command list text
 ------------------------------------------------------------
 
 local helpText = [[

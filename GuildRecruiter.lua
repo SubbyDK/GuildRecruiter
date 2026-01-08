@@ -80,6 +80,7 @@ local function RemoveMessage(index)
     end
 end
 
+
 ------------------------------------------------------------
 -- Zones (FULL TABLE)
 ------------------------------------------------------------
@@ -213,44 +214,35 @@ end
 
 
 ------------------------------------------------------------
--- Permission check
+-- Guild check (invite requirement removed)
 ------------------------------------------------------------
-
-local function PlayerCanInvite()
-    local _, _, _, _, _, _, invite_member = GuildControlGetRankFlags()
-    return invite_member and true or false
-end
 
 local function IsAllowedGuildAndRank()
     local gName = GetGuildInfo("player")
     if not gName then return false end
     if gName ~= GuildRecruiter_GuildName then return false end
-    if not PlayerCanInvite() then return false end
     return true
 end
 
 
 ------------------------------------------------------------
--- RegisterZone with cleanup-loop (3.7)
+-- RegisterZone with cleanup-loop
 ------------------------------------------------------------
 
 local function RegisterZone()
     local zone = GetRealZoneText()
     if not zone or zone == "" then return end
 
-    -- Cleanup-loop: fjern ALLE zoner i NewZones som findes i Zones
     for z in pairs(GuildRecruiter_NewZones) do
         if Zones[z] ~= nil then
             GuildRecruiter_NewZones[z] = nil
         end
     end
 
-    -- Hvis den aktuelle zone findes i Zones → den skal ikke i NewZones
     if Zones[zone] ~= nil then
         return
     end
 
-    -- Ellers er det en ny zone
     if not GuildRecruiter_NewZones[zone] then
         GuildRecruiter_NewZones[zone] = "Unknown"
     end
@@ -325,7 +317,7 @@ end
 ------------------------------------------------------------
 
 local function DebugZones()
-    DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00[GR] Zonestatus:|r")
+    DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00[GR] Zone status:|r")
 
     local list = {}
     for zone in pairs(GuildRecruiter_NewZones) do
@@ -347,7 +339,7 @@ local function DebugZones()
         end
     end
 
-    DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00[GR] I alt: " .. count .. " zoner registreret.|r")
+    DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00[GR] Total: " .. count .. " unknown zones.|r")
 end
 
 
