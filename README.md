@@ -93,3 +93,9 @@ Remove a recruitment message.
 ## ❤️ Credits
 
 Created by **Subby** for the Turtle WoW community.
+
+---
+
+## 📄 License
+
+MIT License — do what you want with it. Credits appreciated but not required.
