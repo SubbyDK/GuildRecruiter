@@ -12,6 +12,8 @@ if (not GuildRecruiter_NewZones) or (type(GuildRecruiter_NewZones) ~= "table") t
     GuildRecruiter_NewZones = {}
 end
 
+GR_Version = 1 -- Update this will force a update of the recruit messages to default.
+
 -- Runtime only
 RecruitTime = GetTime()
 StopGuildRecruit = false
@@ -22,12 +24,24 @@ strDND = false
 -- Recruitment messages (unique SavedVariable)
 ------------------------------------------------------------
 
-GuildRecruiter_Messages = GuildRecruiter_Messages or {
-    "<Group Therapy> PUGs! AQ40 Wed 19:30 CET, Naxx Thu 19:30 CET, BWL Sun 19:30 CET, MC Sun 21:00 CET. We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
-    "<Group Therapy> PUGs! AQ40 Wed 19:30 CET, Naxx Thu 19:30 CET, BWL Sun 19:30 CET, MC Sun 21:00 CET. We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
-    "<Group Therapy> is looking for more for our weekly PUGs. AQ40 Wed 19:30 CET, Naxx Thu 19:30 CET, BWL Sun 19:30 CET, MC Sun 21:00 CET. Please join our Discord for full details: https://discord.gg/mBFNyh7gh9",
-    "<Group Therapy> welcomes players to our weekly PUG raids. AQ40 Wed 19:30 CET, Naxx Thu 19:30 CET, BWL Sun 19:30 CET, MC Sun 21:00 CET. All information is available on our Discord: https://discord.gg/mBFNyh7gh9",
-}
+local function MessageCheck()
+
+    local DEFAULT_MESSAGES = {
+        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. Mild emotional damage guaranteed. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. Join us for light emotional trauma. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. Therapy not included, mild damage is. Info: https://discord.gg/mBFNyh7gh9",
+    }
+
+    GuildRecruiter_Version = GuildRecruiter_Version or 0
+
+    if GuildRecruiter_Version ~= GR_Version then
+        GuildRecruiter_Messages = DEFAULT_MESSAGES
+        GuildRecruiter_Version = GR_Version
+    else
+        GuildRecruiter_Messages = GuildRecruiter_Messages or DEFAULT_MESSAGES
+    end
+end
 
 
 ------------------------------------------------------------
@@ -214,13 +228,17 @@ end
 
 
 ------------------------------------------------------------
--- Guild check (invite requirement removed)
+-- Guild check
 ------------------------------------------------------------
 
 local function IsAllowedGuildAndRank()
     local gName = GetGuildInfo("player")
-    if not gName then return false end
-    if gName ~= GuildRecruiter_GuildName then return false end
+    if not gName then
+        return false
+    end
+    if gName ~= GuildRecruiter_GuildName then
+        return false
+    end
     return true
 end
 
@@ -352,10 +370,11 @@ f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 f:RegisterEvent("CHAT_MSG_SYSTEM")
 
-f:SetScript("OnEvent", function(self, event, arg1)
+f:SetScript("OnEvent", function()
     if event == "PLAYER_LOGIN" then
         InitializeGuildName()
         GuildRecruiter_RecruitChannel = string.lower(GuildRecruiter_RecruitChannel or "world")
+        MessageCheck()
 
     elseif event == "CHAT_MSG_SYSTEM" then
         HandleSystemMessage(arg1)
