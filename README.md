@@ -1,4 +1,4 @@
-# GuildRecruiter v3.7
+# GuildRecruiter
 Automated guild recruitment addon for Turtle WoW.
 
 GuildRecruiter helps guild officers send recruitment messages automatically in world chat, with full control over timing, zones, and message content. The addon is designed to be simple to use, safe to run, and respectful of Turtle WoW’s gameplay rules.
