@@ -9,7 +9,7 @@ GuildRecruiter helps guild officers send recruitment messages automatically in w
 
 ### Automatic recruitment
 - Sends recruitment messages at a configurable interval  
-- Only runs if the player is in the correct guild and has invite permissions  
+- Only runs if the player is in the correct guild  
 - Pauses automatically when AFK or DND  
 
 ### Zone‑aware behavior
