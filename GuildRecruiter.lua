@@ -323,10 +323,7 @@ end
 
 
 local function GuildRecruitment_Manual()
-    local old = RecruitTime
     RecruitTime = 0
-    GuildRecruitment()
-    RecruitTime = old
 end
 
 
