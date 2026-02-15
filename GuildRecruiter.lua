@@ -398,10 +398,10 @@ end)
 ------------------------------------------------------------
 
 local function SlashHandler(msg)
-    msg = msg or ""
-    msg = string.lower(msg)
+    local msg = msg or ""
+    local msgLower = string.lower(msg)
 
-    if msg == "" then
+    if msgLower == "" then
         if GuildRecruiterUI then
             if GuildRecruiterUI:IsShown() then
                 GuildRecruiterUI:Hide()
@@ -414,25 +414,25 @@ local function SlashHandler(msg)
         return
     end
 
-    if msg == "on" then
+    if msgLower == "on" then
         GuildRecruiter_RunRecruit = true
         DEFAULT_CHAT_FRAME:AddMessage("[GR] Recruitment: ON")
 
-    elseif msg == "off" then
+    elseif msgLower == "off" then
         GuildRecruiter_RunRecruit = false
         DEFAULT_CHAT_FRAME:AddMessage("[GR] Recruitment: OFF")
 
-    elseif msg == "now" then
+    elseif msgLower == "now" then
         GuildRecruitment_Manual()
 
-    elseif msg == "status" then
+    elseif msgLower == "status" then
         DEFAULT_CHAT_FRAME:AddMessage("[GR] Recruitment: " .. (GuildRecruiter_RunRecruit and "ON" or "OFF"))
         DEFAULT_CHAT_FRAME:AddMessage("[GR] Timer: " .. GuildRecruiter_RecruitmentRunTimer .. " seconds")
         DEFAULT_CHAT_FRAME:AddMessage("[GR] Channel: " .. GuildRecruiter_RecruitChannel)
         DEFAULT_CHAT_FRAME:AddMessage("[GR] World override: " .. (GuildRecruiter_WorldOverride and "ON" or "OFF"))
         DEFAULT_CHAT_FRAME:AddMessage("[GR] Guild: " .. (GuildRecruiter_GuildName or "n/a"))
 
-    elseif string.sub(msg, 1, 3) == "msg" then
+    elseif string.sub(msgLower, 1, 3) == "msg" then
         local _, _, subcmd, rest = string.find(msg, "^msg%s+(%S+)%s*(.*)$")
 
         if subcmd == "list" then
@@ -460,10 +460,10 @@ local function SlashHandler(msg)
             DEFAULT_CHAT_FRAME:AddMessage("  /gr msg remove <number>")
         end
 
-    elseif string.sub(msg, 1, 5) == "timer" then
-        local _, _, numStr = string.find(msg, "^timer%s*(%d+)%s*$")
+    elseif string.sub(msgLower, 1, 5) == "timer" then
+        local _, _, numStr = string.find(msgLower, "^timer%s*(%d+)%s*$")
         if not numStr then
-            _, _, numStr = string.find(msg, "(%d+)")
+            _, _, numStr = string.find(msgLower, "(%d+)")
         end
 
         local num = numStr and tonumber(numStr) or nil
@@ -474,8 +474,8 @@ local function SlashHandler(msg)
             DEFAULT_CHAT_FRAME:AddMessage("[GR] Usage: /gr timer <seconds>")
         end
 
-    elseif string.sub(msg, 1, 7) == "channel" then
-        local _, _, ch = string.find(msg, "^channel%s+(%S+)")
+    elseif string.sub(msgLower, 1, 7) == "channel" then
+        local _, _, ch = string.find(msgLower, "^channel%s+(%S+)")
         if ch then
             GuildRecruiter_RecruitChannel = string.lower(ch)
             DEFAULT_CHAT_FRAME:AddMessage("[GR] Channel set to: " .. GuildRecruiter_RecruitChannel)
@@ -483,7 +483,7 @@ local function SlashHandler(msg)
             DEFAULT_CHAT_FRAME:AddMessage("[GR] Usage: /gr channel <name>")
         end
 
-    elseif string.sub(msg, 1, 5) == "guild" then
+    elseif string.sub(msgLower, 1, 5) == "guild" then
         local _, _, name = string.find(msg, "^guild%s+(.+)")
         if name then
             GuildRecruiter_GuildName = name
@@ -492,15 +492,15 @@ local function SlashHandler(msg)
             DEFAULT_CHAT_FRAME:AddMessage("[GR] Usage: /gr guild <guild name>")
         end
 
-    elseif msg == "worldoverride on" then
+    elseif msgLower == "worldoverride on" then
         GuildRecruiter_WorldOverride = true
         DEFAULT_CHAT_FRAME:AddMessage("[GR] World override ENABLED")
 
-    elseif msg == "worldoverride off" then
+    elseif msgLower == "worldoverride off" then
         GuildRecruiter_WorldOverride = false
         DEFAULT_CHAT_FRAME:AddMessage("[GR] World override DISABLED")
 
-    elseif msg == "zones" then
+    elseif msgLower == "zones" then
         DebugZones()
 
     else
