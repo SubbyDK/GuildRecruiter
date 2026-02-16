@@ -27,10 +27,10 @@ strDND = false
 local function MessageCheck()
 
     local DEFAULT_MESSAGES = {
-        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
-        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. Mild emotional damage guaranteed. Info: https://discord.gg/mBFNyh7gh9",
-        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. Join us for light emotional trauma. Info: https://discord.gg/mBFNyh7gh9",
-        "<Group Therapy> PUGs! - BWL Mon 19:30 CET - MC Mon 21:00 CET - AQ40 Wed 19:30 CET - Kara40 Thu 19:30 CET - Naxx Sun 19:30 CET. Therapy not included, mild damage is. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. Mild emotional damage guaranteed. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> is recruiting for Kara40 Progression || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. Join us for light emotional trauma. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> is recruiting for Kara40 Progression || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. Therapy not included, mild damage is. Info: https://discord.gg/mBFNyh7gh9",
     }
 
     GuildRecruiter_Version = GuildRecruiter_Version or 0

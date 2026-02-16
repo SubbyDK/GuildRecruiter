@@ -2,10 +2,10 @@
 ## Title: GuildRecruiter
 ## Notes: Automated guild recruitment addon
 ## Author: Subby
-## Version: 3.9
+## Version: 4.0
 
-## SavedVariables: GuildRecruiter_Version, GuildRecruiter_RunRecruit, GuildRecruiter_RecruitmentRunTimer, GuildRecruiter_RecruitChannel, GuildRecruiter_WorldOverride, GuildRecruiter_NewZones
-## SavedVariablesPerCharacter: GuildRecruiter_GuildName, GuildRecruiter_Messages
+## SavedVariables: GuildRecruiter_RunRecruit, GuildRecruiter_RecruitmentRunTimer, GuildRecruiter_RecruitChannel, GuildRecruiter_WorldOverride, GuildRecruiter_NewZones
+## SavedVariablesPerCharacter: GuildRecruiter_Version, GuildRecruiter_GuildName, GuildRecruiter_Messages
 
 GuildRecruiter.lua
 UI.lua
