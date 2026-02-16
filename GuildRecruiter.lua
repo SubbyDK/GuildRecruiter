@@ -12,7 +12,7 @@ if (not GuildRecruiter_NewZones) or (type(GuildRecruiter_NewZones) ~= "table") t
     GuildRecruiter_NewZones = {}
 end
 
-GR_Version = 1 -- Update this will force a update of the recruit messages to default.
+GR_Version = 2 -- Update this will force a update of the recruit messages to default.
 
 -- Runtime only
 RecruitTime = GetTime()
