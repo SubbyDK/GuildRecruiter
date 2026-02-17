@@ -12,7 +12,9 @@ if (not GuildRecruiter_NewZones) or (type(GuildRecruiter_NewZones) ~= "table") t
     GuildRecruiter_NewZones = {}
 end
 
-GR_Version = 3 -- Update this will force a update of the recruit messages to default.
+AddonName = "GuildRecruiter"
+GuildRecruiter_LogInTime = GetTime()
+GR_Version = 4 -- Update this will force a update of the recruit messages to default.
 
 -- Runtime only
 RecruitTime = GetTime()
@@ -37,7 +39,6 @@ local function MessageCheck()
 
     if GuildRecruiter_Version ~= GR_Version then
         GuildRecruiter_Messages = DEFAULT_MESSAGES
-        GuildRecruiter_Version = GR_Version
     else
         GuildRecruiter_Messages = GuildRecruiter_Messages or DEFAULT_MESSAGES
     end
@@ -390,6 +391,15 @@ f:SetScript("OnUpdate", function()
     if GuildRecruiter_RunRecruit and (GetTime() >= (RecruitTime + GuildRecruiter_RecruitmentRunTimer)) then
         GuildRecruitment()
     end
+    if (GuildRecruiter_LogInTime) and ((GuildRecruiter_LogInTime + 15) < GetTime()) then
+        DEFAULT_CHAT_FRAME:AddMessage("|cffFF8000" .. AddonName .. "|r" .. " by " .. "|cFFFFF468" .. "Subby" .. "|r" .. " is loaded.")
+        if (GuildRecruiter_Version ~= GR_Version) then
+            DEFAULT_CHAT_FRAME:AddMessage("|cffFF8000" .. AddonName .. "|r" .. ": Recruitment messages have been updated.")
+            GuildRecruiter_Version = GR_Version
+        end
+        GuildRecruiter_LogInTime = false
+    end
+    
 end)
 
 
