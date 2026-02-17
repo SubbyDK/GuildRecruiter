@@ -12,7 +12,7 @@ if (not GuildRecruiter_NewZones) or (type(GuildRecruiter_NewZones) ~= "table") t
     GuildRecruiter_NewZones = {}
 end
 
-GR_Version = 2 -- Update this will force a update of the recruit messages to default.
+GR_Version = 3 -- Update this will force a update of the recruit messages to default.
 
 -- Runtime only
 RecruitTime = GetTime()
@@ -27,8 +27,8 @@ strDND = false
 local function MessageCheck()
 
     local DEFAULT_MESSAGES = {
-        "<Group Therapy> PUGs! || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
-        "<Group Therapy> PUGs! || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. Mild emotional damage guaranteed. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Naxx Sun 19:30 CET || Kara40 on the 26th! We promise only mild emotional damage. Info: https://discord.gg/mBFNyh7gh9",
+        "<Group Therapy> PUGs! || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Naxx Sun 19:30 CET || Kara40 on the 26th! Mild emotional damage guaranteed. Info: https://discord.gg/mBFNyh7gh9",
         "<Group Therapy> is recruiting for Kara40 Progression || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. Join us for light emotional trauma. Info: https://discord.gg/mBFNyh7gh9",
         "<Group Therapy> is recruiting for Kara40 Progression || BWL Mon 19:30 CET || MC Mon 21:00 CET || AQ40 Wed 19:30 CET || Kara40 Thu 19:30 CET || Naxx Sun 19:30 CET. Therapy not included, mild damage is. Info: https://discord.gg/mBFNyh7gh9",
     }
